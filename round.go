@@ -66,7 +66,7 @@ func (r *RoundRobin) Put(indirect interface{}, weight int) {
 	for ; p > 0; p >>= 1 {
 		r.nodes[p].weight += weight
 	}
-	r.reset()
+	// r.reset()
 }
 
 func (r *RoundRobin) Round() (interface{}, error) {
@@ -147,7 +147,7 @@ func (r *RoundRobin) Remove(indirect interface{}) {
 	} else {
 		r.nodes = r.nodes[:l-1]
 	}
-	r.reset()
+	// r.reset()
 }
 
 func (r *RoundRobin) Gets(c int) []interface{} {
