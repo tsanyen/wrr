@@ -31,7 +31,9 @@ type newOption struct {
 type optionOp func(*newOption)
 
 func New(ops ...optionOp) *RoundRobin {
-	var c newOption
+	var c newOption = newOption{
+		c: DEFAULT_CAP,
+	}
 	for _, op := range ops {
 		op(&c)
 	}
